@@ -1,0 +1,42 @@
+<template>
+  <q-page class="q-pa-md">
+    <div class="row q-gutter-sm">
+      <q-card class="row q-pa-sm q-gutter-sm">
+        <q-form @submit="onSubmit" class="row q-pa-md q-gutter-md">
+          <q-input filled v-model="username" label="Username.." class="col-6">
+          </q-input>
+          <q-input filled v-model="password" label="Password.." class="col-6">
+          </q-input>
+          <q-btn
+            color="white"
+            text-color="black"
+            label="Submit"
+            class="col-6"
+            type="submit"
+          />
+        </q-form>
+      </q-card>
+    </div>
+  </q-page>
+</template>
+
+<script>
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const username = ref(null);
+    const password = ref(null);
+    return {
+      username,
+      password,
+
+      onSubmit() {
+        console.log(
+          `Username-mu iyalah: ${username.value}! \n Password mu: ${password.value}.`
+        );
+      },
+    };
+  },
+});
+</script>
