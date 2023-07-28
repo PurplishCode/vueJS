@@ -1,0 +1,44 @@
+So, here's few basic component that's used within Vue.
+
+
+
+v-on = Basically listening to DOM events (click, mouseover, mouseout) directly. You can set this into the template HTML.. For example:
+v-bind = Binding a dynamic ID / Class.
+
+// v-on //
+
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+
+function increment() {
+count.value++
+}
+</script>
+
+<template>
+<button v-on:click="increment"> Count is: {{ count }} </button>
+</template>
+
+// v-bind // 
+
+<script setup>
+import { ref } from 'vue'
+
+const titleClass = ref('title')
+
+
+
+</script>
+
+
+<template>
+<h1 v-bind:class="titleClass">Hello</h1>
+</template>
+
+<style>
+.title {
+color: red;
+}
+</style>
