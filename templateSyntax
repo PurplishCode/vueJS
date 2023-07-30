@@ -1,0 +1,45 @@
+Vue Directives.. Or as we'd like to call, the Vue's component addition. Most of which is used INSIDE attributes.. There's also text interpolation (mustaches)
+
+For example:
+
+(Here's a few component of VUE directives.)
+v-bind
+v-on
+v-if
+v-else
+v-html
+
+( In this example, we're binding class element (myClass) which its instances has been initialized using ref states on script tag. )
+
+<p v-bind:class="myClass">ChangeRed</p>
+
+
+(The mustache tag will be replaced with the value of the msg property from the corresponding component instance. It will also be updated whenever the msg property changes.)
+
+<p> {{ messages }} </p> {{ thisIsAMustacheTag }}
+
+
+Vue's directive state has shorthand. It's used for conveniences. (Note: v-on has unique corresponding shorthand, which starts with '@')
+
+Some directives can take an "argument", denoted by a colon after the directive name. For example, the v-bind directive is used to reactively update an HTML attribute:
+
+<p v-bind:url="myUrl"></a>
+
+
+Dynamic Arguments​
+It is also possible to use a JavaScript expression in a directive argument by wrapping it with square brackets.
+[This uses the shorthand expression ':']
+
+<button :[elementName]="someValue"></button>
+
+Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the .prevent modifier tells the v-on directive to call event.preventDefault() on the triggered event.
+<form @submit.prevent:"onSubmit"></form>
+
+Think of each syntax like this:
+
+Name: (Starts with v- may be omitted using shorthand.)
+Arguments: (Follows the colon or shorthand symbol)
+Modifiers: (Denoted by the leading dot ".")
+Value: (Interpreted as Javascript expression)
+
+<p v-bind:[argumentSomething].[modifiersSomething]="valueSomething"> </p>
