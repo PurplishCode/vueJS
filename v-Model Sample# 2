@@ -1,0 +1,54 @@
+(v-if,v-else and v-model)
+
+  v-model is great usage for two-ways binding rather than using the classic (v-on and v-bind) method. But of course, these two can come in handy seperatedly.
+
+ For example:
+
+    <script setup>
+    import {ref} from 'vue'
+
+      const text = ref('');
+ 
+    </script>
+
+    <template>
+    <input v-model="text"></input>
+
+    <p> {{text}} </p>
+    </template>
+
+ You import the ref function from Vue, and then you create a ref named text to store the user's input.
+In the template, you use v-model to bind the input element to the text ref. This means any changes made to the input will automatically update the text ref's value, and vice versa.
+Finally, you use the {{ text }} interpolation syntax to display the value of the text ref inside the <p> tag. As the user inputs text into the input field, the content of the <p> tag will update in real-time to reflect the current value of the text ref.
+
+   Now let's talk about v-if and v-else method.
+    The directive of v-if and v-else statement is used for conditioning IF that value is truthy or whatnot. 
+
+   <script setup>   
+     import {ref} from 'vue'
+
+       const awesome = ref(true)
+       
+       function toggle() { 
+       awesome.value = !awesome.value
+       }
+     </script>
+
+
+     <template><button v-on:click="toggle">Vue is awesome!</button>
+     <p v-if="awesome">It's awesome!</p> <p v-else="It's not awesome..">
+       </p>
+       </template>
+
+       In the <script setup> block, you import ref from Vue and use it to create a reactive ref called awesome and initialize it with the value true. This awesome ref will be used to track the state of whether something is awesome or not.
+
+You define a function called toggle inside <script setup>. This function is responsible for toggling the value of awesome between true and false. When the button is clicked, it will call this toggle function, and awesome will change its value accordingly.
+
+In the <template> section, you create a button with the text "Vue is awesome!" and bind the toggle function to its click event using v-on:click="toggle" (or the shorthand @click="toggle").
+
+You use v-if on the first <p> tag to conditionally render it. If the value of awesome is true, the paragraph with the text "It's awesome!" will be displayed.
+
+You use v-else on the second <p> tag to provide an alternative rendering. If the value of awesome is not true (i.e., it's false), then the paragraph with the text "It's not awesome.." will be displayed.
+
+When the button is clicked, the toggle function will be called, and the value of awesome will change. As a result, the v-if and v-else conditions will be re-evaluated, and the content of the <p> tags will update accordingly, providing a simple toggle mechanism to switch between the two paragraphs.
+
